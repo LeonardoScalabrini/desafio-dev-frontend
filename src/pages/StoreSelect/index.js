@@ -1,18 +1,18 @@
 import React from 'react';
 
-const StoreSelect = ({stores, selectedStore, handleStoreChange}) => {
+const StoreSelect = ({ stores, selectedStore, handleStoreChange }) => {
   return (
     <div>
       <h2>Stores</h2>
-      <select id={selectedStore.transactionId} value={selectedStore.storeName} onChange={handleStoreChange}>
+      <select id={selectedStore.storeId} value={selectedStore.storeName} onChange={handleStoreChange}>
         {stores.map((store, index) => (
-          <option key={store.transactionId} value={index}>
+          <option key={index} value={index}>
             {store.storeName}
           </option>
         ))}
       </select>
-      <br/>
-      <br/>
+      <br />
+      <br />
       <table>
         <thead>
           <tr>

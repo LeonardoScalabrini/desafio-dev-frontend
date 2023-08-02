@@ -15,7 +15,7 @@ const FileUpload = () => {
       await uploadCnab(formData);
       alert("File Accepted!");
     } catch (error) {
-      console.error('File upload failed:', error);
+      alert("Some error happend!");
     }
   };
 
