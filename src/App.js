@@ -3,6 +3,7 @@ import FileUpload from './components/FileUpload';
 import StoreSelect from './components/StoreSelect';
 import { getStores } from './api';
 import TransactionList from './components/TransactionList';
+import Grid from '@mui/material/Grid';
 
 const App = () => {
 
@@ -29,14 +30,15 @@ const App = () => {
 
   return (
     <div>
-      <FileUpload />
-      {stores.length > 0 ?
-        <div>
-          <StoreSelect stores={stores} handleStoreChange={handleStoreChange} />
-          <TransactionList store={selectedStore} />
-        </div>
-        : null
-      }
+      <Grid container spacing={2}>
+        <Grid item xs={3}>
+          <FileUpload/>
+        </Grid>
+        <Grid item xs={9}>
+          {stores.length > 0 ? <StoreSelect stores={stores} handleStoreChange={handleStoreChange} /> : null}
+        </Grid>
+      </Grid>
+      {stores.length > 0 ? <TransactionList store={selectedStore} /> : null}
     </div>
   );
 };

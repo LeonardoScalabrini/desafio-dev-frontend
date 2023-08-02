@@ -16,6 +16,8 @@ const FileUpload = () => {
       const formData = new FormData();
       formData.append('file', selectedFile);
       await uploadCnab(formData);
+      setSelectedFile("");
+      alert("File Accepted!")
     } catch (error) {
       console.log(error);
     }
@@ -32,9 +34,7 @@ const FileUpload = () => {
             size="small"
             variant='outlined'
             id="id-text-file"
-            label=""
-            defaultValue=""
-            value={selectedFile ? selectedFile.name : null}
+            value={selectedFile ? selectedFile.name : ""}
           />
         <Button variant="outlined" component="label" onClick={handleFileUpload} disabled={!selectedFile}>Send</Button>
     </Stack>

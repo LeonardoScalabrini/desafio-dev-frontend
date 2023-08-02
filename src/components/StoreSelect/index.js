@@ -29,7 +29,7 @@ const StoreSelect = ({ stores, handleStoreChange }) => {
               onChange={handleChange}
             >
               {stores.map((s, index) => (
-                <MenuItem key={s.storeId} value={index}>{s.storeName}</MenuItem>
+                <MenuItem key={s.storeId} value={index} defaultValue={""}>{s.storeName}</MenuItem>
               ))}
             </Select>
           </FormControl>
@@ -40,7 +40,6 @@ const StoreSelect = ({ stores, handleStoreChange }) => {
             fullWidth
             id="storeName"
             label="Store"
-            defaultValue=""
             value={stores[storeIndex].storeName}
           />
         </Grid>
@@ -50,7 +49,6 @@ const StoreSelect = ({ stores, handleStoreChange }) => {
             fullWidth
             id="ownerName"
             label="Owner"
-            defaultValue=""
             value={stores[storeIndex].ownerName}
           />
         </Grid>
@@ -60,7 +58,6 @@ const StoreSelect = ({ stores, handleStoreChange }) => {
             fullWidth
             id="storeBalance"
             label="Balance"
-            defaultValue=""
             value={stores[storeIndex].storeBalance}
           />
         </Grid>
