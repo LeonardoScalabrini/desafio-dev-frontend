@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import FileUpload from './pages/FileUpload';
-import StoreSelect from './pages/StoreSelect';
+import FileUpload from './components/FileUpload';
+import StoreSelect from './components/StoreSelect';
 import { getStores } from './api';
-import TransactionList from './pages/TransactionList';
+import TransactionList from './components/TransactionList';
 
 const App = () => {
 
@@ -16,7 +16,7 @@ const App = () => {
           setSelectedStore(s.data[0]);
       }).catch(e => {
         getStores([]);
-        alert("Some error happend!");
+        console.log(e);
       });
     };
     fetchData();
@@ -32,7 +32,7 @@ const App = () => {
       <FileUpload />
       {stores.length > 0 ?
         <div>
-          <StoreSelect stores={stores} selectedStore={selectedStore} handleStoreChange={handleStoreChange} />
+          <StoreSelect stores={stores} handleStoreChange={handleStoreChange} />
           <TransactionList store={selectedStore} />
         </div>
         : null
